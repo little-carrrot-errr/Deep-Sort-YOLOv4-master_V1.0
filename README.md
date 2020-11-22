@@ -68,10 +68,10 @@ python convertToH5.py --input_size 608 --min_score 0.3 --iou 0.5 --model_path mo
 python detect_image.py --picture test.jpg --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
 
 # 执行视频目标检测跟踪
-python detect_video_tracker.py --video test.mp4 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/mars-small128.pb
+python detect_video_tracker.py --video test.mp4 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
 
 # 执行摄像头目标检测跟踪
-python detect_video_tracker.py --video 0 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/mars-small128.pb
+python detect_video_tracker.py --video 0 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
 
 ```
 

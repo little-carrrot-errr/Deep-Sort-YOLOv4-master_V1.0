@@ -81,6 +81,8 @@ min_score      设置置信度过滤，低于0.6置信度不会显示在图片�
 model_yolo     权重文件转为模型H5文件
 model_feature  目标检测特征模型文件，如果是检测小物体的建议使用mars-small128.pb，如果是中大物体建议使用market1501.pb
 ```
+### 博客交流
+https://guo-pu.blog.csdn.net/article/details/109912838
 
 ### YOLOv4目标检测效果：
 ```text

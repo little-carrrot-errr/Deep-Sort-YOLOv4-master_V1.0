@@ -75,3 +75,9 @@ python detect_video_tracker.py --video 0 --min_score 0.6 --model_yolo model_data
 
 ```
 
+### 补充说明
+```text
+min_score      设置置信度过滤，低于0.6置信度不会显示在图片中，能过滤低置信度目标物体；这个参数根据项目需求来设定
+model_yolo     权重文件转为模型H5文件
+model_feature  目标检测特征模型文件，如果是检测小物体的建议使用mars-small128.pb，如果是中大物体建议使用market1501.pb
+```

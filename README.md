@@ -46,22 +46,21 @@ deep-sort-yolov4
 │─── test.jpg                        
 └─── README.md
 ```
+## 搭建开发环境
+#### Ubuntu系统
+详细安装过程请参考：https://guo-pu.blog.csdn.net/article/details/109533526
+```shell
+# 安装依赖 
+pip install -r requirements.txt
+```
+#### Windows系统
+详细安装过程请参考：https://guo-pu.blog.csdn.net/article/details/108807165
 
 ## 执行
 
 模型的权重文件需要转出模型H5文件，yolov4.weights 是的权重文件，由它生成yolov4.h5。
 
 ```shell
-# 安装依赖 
-
-【适合Ubuntu系统】
-pip install -r requirements.txt
-详细安装过程请参考：https://guo-pu.blog.csdn.net/article/details/109533526
-
-【适合Windows系统】
-详细安装过程请参考：https://guo-pu.blog.csdn.net/article/details/108807165
-
-
 # 模型权重 `yolov4.weights` 转 `yolo4.h5`
 python convertToH5.py --input_size 608 --min_score 0.3 --iou 0.5 --model_path model_data/yolov4.h5 --weights_path model_data/yolov4.weights
 

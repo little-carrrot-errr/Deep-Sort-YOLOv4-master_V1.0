@@ -126,7 +126,7 @@ def generate_detections(encoder, mot_dir, output_dir, detection_dir=None):
         bounding boxes in format `(x, y, w, h)` and returns a matrix of
         corresponding feature vectors.
     mot_dir : str
-        Path to the MOTChallenge directory (can be either train or test).
+        Path to the MOTChallenge directory (can be either train or test_folder).
     output_dir
         Path to the output directory. Will be created if it does not exist.
     detection_dir
@@ -191,7 +191,7 @@ def parse_args():
         default="resources/networks/mars-small128.pb",
         help="Path to freezed inference graph protobuf.")
     parser.add_argument(
-        "--mot_dir", help="Path to MOTChallenge directory (train or test)",
+        "--mot_dir", help="Path to MOTChallenge directory (train or test_folder)",
         required=True)
     parser.add_argument(
         "--detection_dir", help="Path to custom detections. Defaults to "

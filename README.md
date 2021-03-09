@@ -1,3 +1,7 @@
+
+python detect_video_tracker.py --video model_data/test1.gif --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
+
+
 # Deep SORT —— YOLO v4 目标检测跟踪
 
 ## 介绍
@@ -6,7 +10,7 @@
 
 支持系统：Windows系统、Ubuntu系统
 
-**运行环境**
+**运行环境**YOLO3-CPU-TensorFlow2
 
 - Keras==2.4.3
 - tensorflow-gpu==2.3.1
@@ -65,10 +69,10 @@ pip install -r requirements.txt
 python convertToH5.py --input_size 608 --min_score 0.3 --iou 0.5 --model_path model_data/yolov4.h5 --weights_path model_data/yolov4.weights
 
 # 执行图片目标检测跟踪
-python detect_image.py --picture test.jpg --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
+python detect_image.py --picture test_folder.jpg --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
 
 # 执行视频目标检测跟踪
-python detect_video_tracker.py --video test.mp4 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
+python detect_video_tracker.py --video test_folder.mp4 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
 
 # 执行摄像头目标检测跟踪
 python detect_video_tracker.py --video 0 --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb

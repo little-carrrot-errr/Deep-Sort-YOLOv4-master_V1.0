@@ -76,7 +76,8 @@ def resblock_body(x, num_filters, num_blocks, all_narrow=True):
     shortconv = DarknetConv2D_BN_Mish(num_filters//2 if all_narrow else num_filters, (1,1))(preconv1)
     mainconv = DarknetConv2D_BN_Mish(num_filters//2 if all_narrow else num_filters, (1,1))(preconv1)
     for i in range(num_blocks):
-        y = compose(DarknetConv2D_BN_Mish(num_filters//2, (1,1)),DarknetConv2D_BN_Mish(num_filters//2 if all_narrow else num_filters, (3,3)))(mainconv)
+        y = compose(DarknetConv2D_BN_Mish(num_filters//2, (1,1)),
+                    DarknetConv2D_BN_Mish(num_filters//2 if all_narrow else num_filters, (3,3)))(mainconv)
         mainconv = Add()([mainconv,y])
     postconv = DarknetConv2D_BN_Mish(num_filters//2 if all_narrow else num_filters, (1,1))(mainconv)
     route = Concatenate()([postconv, shortconv])
@@ -85,7 +86,7 @@ def resblock_body(x, num_filters, num_blocks, all_narrow=True):
 def darknet_body(x):
     '''Darknent body having 52 Convolution2D layers'''
     x = DarknetConv2D_BN_Mish(32, (3,3))(x)
-    x = resblock_body(x, 64, 1, False)
+    x = resblock_body(x, 64, 1, False) #x, num_filters, num_blocks, all_narrow=True
     x = resblock_body(x, 128, 2)
     x = resblock_body(x, 256, 8)
     x = resblock_body(x, 512, 8)
@@ -123,7 +124,7 @@ def yolo4_body(inputs, num_anchors, num_classes):
 
     y19_upsample = compose(DarknetConv2D_BN_Leaky(256, (1,1)), UpSampling2D(2))(y19)
 
-    #38x38 head
+    #38x38 head 0
     y38 = DarknetConv2D_BN_Leaky(256, (1,1))(darknet.layers[204].output)
     y38 = Concatenate()([y38, y19_upsample])
     y38 = DarknetConv2D_BN_Leaky(256, (1,1))(y38)

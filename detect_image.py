@@ -16,7 +16,7 @@ from deep_sort.detection import Detection
 from deep_sort.tracker import Tracker
 from deep_sort import generate_detections
 
-# 执行命令  python detect_image.py --picture test.jpg --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
+# 执行命令  python detect_image.py --picture test_folder.jpg --min_score 0.6 --model_yolo model_data/yolov4.h5 --model_feature model_data/market1501.pb
 
 # 外部参数配置
 '''
@@ -26,7 +26,7 @@ model_yolo     权重文件转为模型H5文件
 model_feature  目标检测特征模型文件，如果是检测小物体的建议使用mars-small128.pb，如果是中大物体建议使用market1501.pb
 '''
 parser = argparse.ArgumentParser()
-parser.add_argument('--picture', type=str, default='test.jpg', help='picture file.')
+parser.add_argument('--picture', type=str, default='test_folder.jpg', help='picture file.')
 parser.add_argument('--min_score', type=float, default=0.6, help='Below this score (confidence level) is not displayed.')
 parser.add_argument('--model_yolo', type=str, default='model_data/yolo4.h5', help='Object detection model file.')
 parser.add_argument('--model_feature', type=str, default='model_data/market1501.pb', help='target tracking model file.')
@@ -80,7 +80,7 @@ if __name__ == '__main__':
             (y1, x1 - 5),
             cv2.FONT_HERSHEY_SIMPLEX,
             font_scale,
-            (255, 255, 255),
+            (220,20,60),
             box_size//2,
             lineType=cv2.LINE_AA
         )
